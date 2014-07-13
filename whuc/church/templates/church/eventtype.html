@@ -1,0 +1,18 @@
+{% extends 'church/layout.html' %}
+{% block content %}
+{% load static %}
+<h2>Maintain list of event types</h2>
+
+<form action="/staff/eventtype/" method="post">
+
+{% csrf_token %}
+<ul>
+{% for eventtype in eventtypes %}
+    <li>{{eventtype}}</li>
+{% endfor %}
+</ul>
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

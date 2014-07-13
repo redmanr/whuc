@@ -1,0 +1,17 @@
+{% extends 'church/layout.html' %}
+{% block content %}
+{% load static %}
+<h2>Maintain list of languages</h2>
+
+<form action="." method="post">
+{% csrf_token %}
+<ul>
+{% for language in languages %}
+    <li>{{language}}</li>
+{% endfor %}
+</ul>
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

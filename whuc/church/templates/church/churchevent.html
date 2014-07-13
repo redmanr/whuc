@@ -1,0 +1,23 @@
+{% extends 'church/layout.html' %}
+{% block content %}
+{% load static %}
+<h1>Maintain list of church events</h1>
+
+<form action="." enctype="multipart/form-data" method="POST" name="new_doc">
+{% csrf_token %}
+{{ churcheventform.as_p }}
+
+
+<h2>Current Documents:</h2>
+<ul>
+{% for eventdoc in eventdocs %}
+    <li>{{ eventdoc.language }} - {{ eventdoc.filepath }} - Title: {{ eventdoc.title }}</li>
+{% endfor %}
+</ul>
+
+<h2>Add new document:</h2>
+{{ eventdocform.as_p }}
+<input type="submit" value="Update" />
+</form>
+
+{% endblock %}

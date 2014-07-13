@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <style type="text/css" media="screen">
+      a:link {
+          color: #0000cc;
+          text-decoration: none;
+      }
+
+      a:visited {
+          color: #cc00ff;
+          text-decoration: none;
+      }
+
+      a:hover {
+          text-decoration: underline;
+      }
+
+      a:active {
+          text-decoration: underline;
+      }
+
+      #header {
+        position: absolute;
+        width: 100%;
+        height: 140;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: 0;
+      }
+      #menu {
+        position: absolute;
+        width: 10em;
+        height: auto;
+        top: 140;
+        right: auto;
+        bottom: auto;
+        left: 0;
+      }
+      #contents {
+        position: absolute;
+        overflow: auto;
+        width: auto;
+        height: auto;
+        top: 140;
+        right: 0;
+        bottom: auto;
+        left: 10em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">{% include 'church/header.html' %}</div>
+    <div id="menu">{% include 'church/menu.html' %}</div>
+    <div id="contents">{% block content %}{% endblock %}</div>
+  </body>
+</html>
