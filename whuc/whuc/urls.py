@@ -3,10 +3,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from django.contrib import admin
+
+from church import views
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
+    url(r'^$', views.index),
     url(r'^church/', include('church.urls')),
     url(r'^staff/', include('church.staffurls')),
     url(r'^admin/', include(admin.site.urls)),
