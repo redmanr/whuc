@@ -85,7 +85,11 @@ def staff(request, action=''):
                                    'userauth': userauth})
     
     elif action == 'churchevent/': 
-        churchevent = ChurchEvent.objects.latest('date')
+        try:
+            churchevent = ChurchEvent.objects.latest('date')
+        except:
+            churchevent = None
+        
         if request.method == 'POST': # If the form has been submitted...
             # churcheventselection = SelectChurchEventForm(request=POST)
             newevent = ChurchEventForm(request.POST)
