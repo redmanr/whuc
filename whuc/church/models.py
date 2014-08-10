@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 class EventType(models.Model):
@@ -49,7 +50,7 @@ class ChurchEvent(models.Model):
         """
         return '\n'.join([
             'Presenter: ' + self.presenter,
-            'Date: ' + self.date.date().isoformat()])
+            'Date: ' + date(self.date).isoformat()])
 
 class EventDocument(models.Model):
     """

@@ -3,7 +3,7 @@
 <h1>Services</h1>
 <ul>
 {% for service in services %}
-<li>{{ service.date }}: {{ service.presenter }}</li>
+<li>{{ service.date.date }}: {{ service.presenter }}</li>
     <ul>
     {% for doc in service.eventdocument_set.all %}
         <li> <a href="{{ doc.filepath.url }}">{{ doc.language }}: {{ doc.title }}</a> </li>
